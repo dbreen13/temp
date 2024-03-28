@@ -538,7 +538,7 @@ def hype(
     model_name: str = "parn",
     seed: int = None,
     data_workers: int = 1,
-    data_dir: Path = Path("/home/dbreen/Documents/tddl/bigdata"),
+    data_dir: Path = Path("/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata"),
     cuda: str = None,
     cpu: str = None,
     checkpoint_dir: str = None,
