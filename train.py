@@ -70,7 +70,7 @@ DATASET_MODEL_PARAMETERS = { # TODO: write this as config file
 def train(
     batch: int = 256,
     epochs: int = 200,
-    logdir: Path = Path("/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata"),
+    logdir: Path = Path("/home/dbreen/Documents/tddl/bigdata"),
     lr: float = 0.1,
     gamma: float = 0.1,
     dropout: float = None,
@@ -80,7 +80,7 @@ def train(
     cpu: int = None,
     data_workers: int = 1,
     seed: int = None,
-    data_dir: Path = Path("/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata"),
+    data_dir: Path = Path("/home/dbreen/Documents/tddl/bigdata"),
     cuda: str = None,
     milestones: List[int] = None,
     optimizer: str = None,
@@ -240,14 +240,14 @@ def decompose(
     error_min: float = 0.0,
     epochs: int = 200,
     lr: float = 0.1,
-    logdir: Path = Path("/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata"),
+    logdir: Path = Path("/home/dbreen/Documents/tddl/bigdata"),
     # freeze_parameters: bool = False
     batch: int = 256,
     gamma: float = 0,
     model_name: str = "parn",
     seed: int = None,
     data_workers: int = 2,
-    data_dir: Path = Path("/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata"),
+    data_dir: Path = Path("/home/dbreen/Documents/tddl/bigdata"),
     cuda: str = None,
     cpu: str = None,
     checkpoint_dir: str = None,
@@ -261,10 +261,13 @@ def decompose(
     index: int=1,
     **kwargs,
 ) -> None:
-
+    
     if type(layers) == int:
         layers = [layers]
-
+    if all(isinstance(elem, list) for elem in layers): 
+        layers=layers[0]
+        
+    print('hier ben ik')    
     logdir, data_dir, baseline_path = check_paths(
         logdir, data_dir, baseline_path
     )
@@ -538,7 +541,7 @@ def hype(
     model_name: str = "parn",
     seed: int = None,
     data_workers: int = 1,
-    data_dir: Path = Path("/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata"),
+    data_dir: Path = Path("/home/dbreen/Documents/tddl/bigdata"),
     cuda: str = None,
     cpu: str = None,
     checkpoint_dir: str = None,
