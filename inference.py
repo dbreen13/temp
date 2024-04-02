@@ -55,6 +55,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-base-cif' )
     for i in range(3):
         for data in testloader:
@@ -84,6 +85,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-cp-0.1-lay[44]' )
     for i in range(3):
         for data in testloader:
@@ -114,6 +116,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-cp-0.1-lay[54,51]' )
     for i in range(3):
         for data in testloader:
@@ -142,6 +145,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-cp-0.1-lay[60]' )
     for i in range(3):
         for data in testloader:
@@ -170,6 +174,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-cp-0.1-lay[63]' )
     for i in range(3):
         for data in testloader:
@@ -197,6 +202,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-cp-0.1-lay[63,60]' )
     for i in range(3):
         for data in testloader:
@@ -225,6 +231,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-cp-0.1-lay[63,60,44,41]' )
     for i in range(3):
         for data in testloader:
@@ -252,7 +259,8 @@ correct = 0
 total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
-    timers.sleep(120)
+    timers.sleep(120)    
+    print('start')
     logger.info('start-inf-cp-0.9-lay[63]' )
     for i in range(3):
         for data in testloader:
@@ -281,6 +289,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tucker-0.9-lay[63]' )
     for i in range(3):
         for data in testloader:
@@ -309,6 +318,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tucker-0.1-lay[63]' )
     for i in range(3):
         for data in testloader:
@@ -336,6 +346,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tucker-0.1-lay[44]' )
     for i in range(3):
         for data in testloader:
@@ -363,6 +374,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tucker-0.1-lay[60]' )
     for i in range(3):
         for data in testloader:
@@ -394,6 +406,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tt-0.19-lay[63]' )
     for i in range(3):
         for data in testloader:
@@ -421,6 +434,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tt-0.19-lay[60]' )
     for i in range(3):
         for data in testloader:
@@ -449,6 +463,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tt-0.19-lay[44]' )
     for i in range(3):
         for data in testloader:
@@ -476,6 +491,7 @@ total = 0
 # since we're not training, we don't need to calculate the gradients for our outputs
 with torch.no_grad():
     timers.sleep(120)
+    print('start')
     logger.info('start-inf-tt-80-lay[63]' )
     for i in range(3):
         for data in testloader:
