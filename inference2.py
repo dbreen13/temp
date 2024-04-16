@@ -42,157 +42,157 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
-#baseline
-path="/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/baselines/baseline-rn18-cifar10/runnr1/rn18_18_dNone_128_adam_l0.001_g0.1_w0.0_sTrue/cnn_best.pth"   
-model=torch.load(path)
-model.eval()
+# #baseline
+# path="/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/baselines/baseline-rn18-cifar10/runnr1/rn18_18_dNone_128_adam_l0.001_g0.1_w0.0_sTrue/cnn_best.pth"   
+# model=torch.load(path)
+# model.eval()
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-# since we're not training, we don't need to calculate the gradients for our outputs
-correct = 0
-total = 0
-# since we're not training, we don't need to calculate the gradients for our outputs
-with torch.no_grad():
-    timers.sleep(120)
-    print('start')
-    logger.info('start-inf-base-rn18-cif' )
-    for i in range(80):
-        for data in testloader:
-            images, labels = data
-            images = images.to(device)  # Move input data to the same device as the model
-            labels = labels.to(device)  # Move labels to the same device as the model
-            # calculate outputs by running images through the network
-            outputs = model(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-        i+=1
-    logger.info('end-inf-base-rn18-cif' )
-    timers.sleep(120)    
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model.to(device)
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# correct = 0
+# total = 0
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# with torch.no_grad():
+#     timers.sleep(120)
+#     print('start')
+#     logger.info('start-inf-base-rn18-cif' )
+#     for i in range(80):
+#         for data in testloader:
+#             images, labels = data
+#             images = images.to(device)  # Move input data to the same device as the model
+#             labels = labels.to(device)  # Move labels to the same device as the model
+#             # calculate outputs by running images through the network
+#             outputs = model(images)
+#             # the class with the highest energy is what we choose as prediction
+#             _, predicted = torch.max(outputs.data, 1)
+#             total += labels.size(0)
+#             correct += (predicted == labels).sum().item()
+#         i+=1
+#     logger.info('end-inf-base-rn18-cif' )
+#     timers.sleep(120)    
     
-# #fact-cp-0.1-lay[44]
-path="/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[44]/runnr1/rn18-lr-[44]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth"   
-model=torch.load(path)
-model.eval()
+# # #fact-cp-0.1-lay[44]
+# path="/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[44]/runnr1/rn18-lr-[44]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth"   
+# model=torch.load(path)
+# model.eval()
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-# since we're not training, we don't need to calculate the gradients for our outputs
-correct = 0
-total = 0
-# since we're not training, we don't need to calculate the gradients for our outputs
-with torch.no_grad():
-    timers.sleep(120)
-    print('start')
-    logger.info('start-inf-cp-0.1-lay[44]' )
-    for i in range(80):
-        for data in testloader:
-            images, labels = data
-            images = images.to(device)  # Move input data to the same device as the model
-            labels = labels.to(device)  # Move labels to the same device as the model
-            # calculate outputs by running images through the network
-            outputs = model(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-        i+=1
-    logger.info('end-inf-cp-0.1-lay[44]' )
-    timers.sleep(120)
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model.to(device)
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# correct = 0
+# total = 0
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# with torch.no_grad():
+#     timers.sleep(120)
+#     print('start')
+#     logger.info('start-inf-cp-0.1-lay[44]' )
+#     for i in range(80):
+#         for data in testloader:
+#             images, labels = data
+#             images = images.to(device)  # Move input data to the same device as the model
+#             labels = labels.to(device)  # Move labels to the same device as the model
+#             # calculate outputs by running images through the network
+#             outputs = model(images)
+#             # the class with the highest energy is what we choose as prediction
+#             _, predicted = torch.max(outputs.data, 1)
+#             total += labels.size(0)
+#             correct += (predicted == labels).sum().item()
+#         i+=1
+#     logger.info('end-inf-cp-0.1-lay[44]' )
+#     timers.sleep(120)
         
 
-# #fact-cp-0.1-lay[54,51]
-path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[54, 51]/runnr1/rn18-lr-[54, 51]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
-model=torch.load(path)
-model.eval()
+# # #fact-cp-0.1-lay[54,51]
+# path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[54, 51]/runnr1/rn18-lr-[54, 51]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
+# model=torch.load(path)
+# model.eval()
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-# since we're not training, we don't need to calculate the gradients for our outputs
-correct = 0
-total = 0
-# since we're not training, we don't need to calculate the gradients for our outputs
-with torch.no_grad():
-    timers.sleep(120)
-    print('start')
-    logger.info('start-inf-cp-0.1-lay[54,51]' )
-    for i in range(80):
-        for data in testloader:
-            images, labels = data
-            images = images.to(device)  # Move input data to the same device as the model
-            labels = labels.to(device)  # Move labels to the same device as the model
-            # calculate outputs by running images through the network
-            outputs = model(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-        i+=1
-    logger.info('end-inf-cp-0.1-lay[54,51]' )
-    timers.sleep(120)
-
-
-# #fact-cp-0.1-lay[60]
-path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[60]/runnr1/rn18-lr-[60]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
-model=torch.load(path)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-# since we're not training, we don't need to calculate the gradients for our outputs
-correct = 0
-total = 0
-# since we're not training, we don't need to calculate the gradients for our outputs
-with torch.no_grad():
-    timers.sleep(120)
-    print('start')
-    logger.info('start-inf-cp-0.1-lay[60]' )
-    for i in range(80):
-        for data in testloader:
-            images, labels = data
-            images = images.to(device)  # Move input data to the same device as the model
-            labels = labels.to(device)  # Move labels to the same device as the model
-            # calculate outputs by running images through the network
-            outputs = model(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-        i+=1
-    logger.info('end-inf-cp-0.1-lay[60]' )
-    timers.sleep(120)
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model.to(device)
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# correct = 0
+# total = 0
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# with torch.no_grad():
+#     timers.sleep(120)
+#     print('start')
+#     logger.info('start-inf-cp-0.1-lay[54,51]' )
+#     for i in range(80):
+#         for data in testloader:
+#             images, labels = data
+#             images = images.to(device)  # Move input data to the same device as the model
+#             labels = labels.to(device)  # Move labels to the same device as the model
+#             # calculate outputs by running images through the network
+#             outputs = model(images)
+#             # the class with the highest energy is what we choose as prediction
+#             _, predicted = torch.max(outputs.data, 1)
+#             total += labels.size(0)
+#             correct += (predicted == labels).sum().item()
+#         i+=1
+#     logger.info('end-inf-cp-0.1-lay[54,51]' )
+#     timers.sleep(120)
 
 
-# #fact-cp-0.1-lay[63]
-path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[63]/runnr1/rn18-lr-[63]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
-model=torch.load(path)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-# since we're not training, we don't need to calculate the gradients for our outputs
-correct = 0
-total = 0
-# since we're not training, we don't need to calculate the gradients for our outputs
-with torch.no_grad():
-    timers.sleep(120)
-    print('start')
-    logger.info('start-inf-cp-0.1-lay[63]' )
-    for i in range(80):
-        for data in testloader:
-            images, labels = data
-            images = images.to(device)  # Move input data to the same device as the model
-            labels = labels.to(device)  # Move labels to the same device as the model
-            # calculate outputs by running images through the network
-            outputs = model(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-        i+=1
-    logger.info('end-inf-cp-0.1-lay[63]' )
-    timers.sleep(120)
+# # #fact-cp-0.1-lay[60]
+# path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[60]/runnr1/rn18-lr-[60]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
+# model=torch.load(path)
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model.to(device)
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# correct = 0
+# total = 0
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# with torch.no_grad():
+#     timers.sleep(120)
+#     print('start')
+#     logger.info('start-inf-cp-0.1-lay[60]' )
+#     for i in range(80):
+#         for data in testloader:
+#             images, labels = data
+#             images = images.to(device)  # Move input data to the same device as the model
+#             labels = labels.to(device)  # Move labels to the same device as the model
+#             # calculate outputs by running images through the network
+#             outputs = model(images)
+#             # the class with the highest energy is what we choose as prediction
+#             _, predicted = torch.max(outputs.data, 1)
+#             total += labels.size(0)
+#             correct += (predicted == labels).sum().item()
+#         i+=1
+#     logger.info('end-inf-cp-0.1-lay[60]' )
+#     timers.sleep(120)
+
+
+# # #fact-cp-0.1-lay[63]
+# path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[63]/runnr1/rn18-lr-[63]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
+# model=torch.load(path)
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model.to(device)
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# correct = 0
+# total = 0
+# # since we're not training, we don't need to calculate the gradients for our outputs
+# with torch.no_grad():
+#     timers.sleep(120)
+#     print('start')
+#     logger.info('start-inf-cp-0.1-lay[63]' )
+#     for i in range(80):
+#         for data in testloader:
+#             images, labels = data
+#             images = images.to(device)  # Move input data to the same device as the model
+#             labels = labels.to(device)  # Move labels to the same device as the model
+#             # calculate outputs by running images through the network
+#             outputs = model(images)
+#             # the class with the highest energy is what we choose as prediction
+#             _, predicted = torch.max(outputs.data, 1)
+#             total += labels.size(0)
+#             correct += (predicted == labels).sum().item()
+#         i+=1
+#     logger.info('end-inf-cp-0.1-lay[63]' )
+#     timers.sleep(120)
 
 # #fact-cp-0.1-lay[63,60]
-path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[63,60]/runnr1/rn18-lr-[63,60]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
+path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[63, 60]/runnr1/rn18-lr-[63, 60]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
 model=torch.load(path)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
@@ -221,7 +221,7 @@ with torch.no_grad():
 
 
 # #fact-cp-0.1-lay[63,60,44,41]
-path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[63,60,44,41]/runnr1/rn18-lr-[63,60,44,41]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
+path='/media/jkooij/d63a895a-7e13-4bf0-a13d-1a6678dc0e38/dbreen/bigdata/cifar10/logs/rn18/decomposed/fact-cp-r0.1-lay[63, 60, 44, 41]/runnr1/rn18-lr-[63, 60, 44, 41]-cp-0.1-dTrue-iNone_bn_128_sgd_l1e-05_g0.0_sTrue/fact_model_best.pth' 
 model=torch.load(path)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
