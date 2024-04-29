@@ -22,6 +22,8 @@ import torchvision.transforms as transforms
 from time import time, perf_counter
 import logging
 logging.basicConfig(level = logging.INFO)
+from datetime import datetime
+import time as timers
 
 
 logger=logging.getLogger('Layertest')
@@ -159,6 +161,10 @@ def run_model(cnn_dict, fact_dict):
     )
         
     #start_time = time()
+    timers.sleep(30)
+    now=datetime.now()
+    sec_wait=60-now.second
+    timers.sleep(sec_wait)
     logger.info(f"start-forward-outch{out_channels}-inch{in_channels}-fact{factorization}-ind{ind}s")
     for _ in tqdm(range(m), desc="Forward Iterations"):
         output = model(x)
@@ -203,7 +209,7 @@ stride=1
 batch_size=200
 n_epochs=1
 lr=1e-5
-it=20000
+it=30000
 
 #parameters the dataset
 input_size=in_channels
